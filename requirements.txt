@@ -1,0 +1,5 @@
+# Panda3D Solar System Simulator - Dependencies
+# Install with: pip install -r requirements.txt
+
+panda3d>=1.10.0
+
