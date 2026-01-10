@@ -10,7 +10,7 @@ class Objects(ABC):
     #universal scales
     dimension_scale = 1e-6
     distance_scale = 5
-    time_scale = 1e5
+    time_scale = 1e4
     size_scale = 3
         
     G_constant = 6.67430e-11

@@ -6,8 +6,9 @@ from objects import Objects
 from planet import Planet
 from star import Star
 from moon import Moon
-from select import Select
+from selector import Selector
 from trail import Trail
+from slider import Slider
 
 from direct.showbase.MessengerGlobal import messenger
 from direct.gui.DirectGui import DirectFrame, DirectLabel, DirectButton
@@ -63,7 +64,10 @@ class MyApp(ShowBase):
 
         #selector
         self.object_selected = None
-        self.selector = Select(self)
+        self.selector = Selector(self)
+
+        #slider 
+        self.slider = Slider()
 
         #create grid
         self.grid = self.create_grid(size=500000, spacing=1000, zoffset=-self.star.node.getBounds().getRadius())

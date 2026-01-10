@@ -39,7 +39,7 @@ class Planet(Objects):
     def create_ui(self):
         self.ui = DirectFrame(
             frameColor=(0, 0, 0, 0.8),
-            frameSize=(-0.5, 0.5, -0.3, 0.3),
+            frameSize=(-0.4, 0.4, -0.3, 0.3),
             pos=(0.8, 0, 0)
         )
 
@@ -47,7 +47,16 @@ class Planet(Objects):
             parent=self.ui,
             text=self.name,
             scale=0.07,
-            pos=(0, 0, 0.2)
+            pos=(0, 0, 0.18)
+        )
+
+        self.values_label = DirectLabel(
+            parent=self.ui,
+            text=f"Mass: {self.mass} kg\nRadius: {self.radius / 1000} km\n\nVelocity: {int(self.vel.length())} m/s",
+            scale=0.04,
+            pos=(0, 0, 0.06),
+            frameSize=(-7, 7, -4.5, 2), 
+            textMayChange=True
         )
 
         DirectButton(

@@ -46,6 +46,15 @@ class Moon(Objects):
             pos=(0, 0, 0.2)
         )
 
+        self.values_label = DirectLabel(
+            parent=self.ui,
+            text=f"Mass: {self.mass} kg\nRadius: {self.radius / 1000} km\n\nVelocity: {int(self.vel.length())} m/s",
+            scale=0.04,
+            pos=(0, 0, 0.06),
+            frameSize=(-7, 7, -4.5, 2), 
+            textMayChange=True
+        )
+
         DirectButton(
             parent=self.ui,
             text="Close",

@@ -1,7 +1,7 @@
 from panda3d.core import CollisionTraverser, CollisionNode, CollisionRay
 from panda3d.core import CollisionHandlerQueue, BitMask32
 
-class Select:
+class Selector:
     def __init__(self, base):
         self.base = base
 
