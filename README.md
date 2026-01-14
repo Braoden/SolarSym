@@ -18,7 +18,7 @@ A realistic 3D solar system simulation built with Panda3D, featuring accurate ph
 - **Skybox**: Immersive backdrop for the simulation
 
 ### Technical Details
-- Uses real-world physical constants (G = 6.67430e-11)
+- Uses real-world physical constants and formulas
 - Accurate planetary masses, radii, and orbital periods
 - Configurable time scale for speeding up or slowing down simulation
 - Custom scaling system for rendering large distances efficiently
