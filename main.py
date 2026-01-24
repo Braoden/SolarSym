@@ -9,6 +9,8 @@ from moon import Moon
 from selector import Selector
 from trail import Trail
 from slider import Slider
+from nav import Minimap
+from menu import Menu
 
 from direct.showbase.MessengerGlobal import messenger
 from direct.gui.DirectGui import DirectFrame, DirectLabel, DirectButton
@@ -62,23 +64,26 @@ class MyApp(ShowBase):
 
         self.solarSystem()
 
-        #selector
         self.object_selected = None
         self.selector = Selector(self)
 
-        #slider 
         self.slider = Slider()
 
-        #create grid
+        self.enable_trails = True
+
+        self.menu = Menu(self)
+
+        self.minimap = Minimap(self)
+
         self.grid = self.create_grid(size=500000, spacing=1000, zoffset=-self.star.node.getBounds().getRadius())
         
-        #acceptors
         self.accept("mouse1", self.on_mouse1)
         
         self.taskMgr.add(self.update, "update-physics")
 
     
     def update(self, task):
+        dt = ClockObject.getGlobalClock().getDt()
         for object in self.all_objects:
             object.reset_acc()
 
@@ -92,9 +97,11 @@ class MyApp(ShowBase):
             # result in a less accurate calculation of acceleration, affecting the simulation's physics.
             # This change, depending on the frame rate should be fine at time_scale < 1e5 (unsure).
             if (object != self.star):
-                dt = ClockObject.getGlobalClock().getDt() * object.time_scale
-                object.update_physics(dt)
+                object.time_scale
+                object.update_physics(dt * object.time_scale)
                 object.sync_node()
+
+        self.minimap.dynamic_minimap()
 
         return task.cont
 

@@ -4,8 +4,10 @@ import random
 
 from objects import Objects
 
-from panda3d.core import Vec3, Material
+from panda3d.core import Vec3, PointLight, Vec4
 from direct.showbase.MessengerGlobal import messenger
+
+from direct.filter.CommonFilters import CommonFilters
 
 from direct.gui.DirectGui import DirectFrame, DirectLabel, DirectButton
 
@@ -16,6 +18,20 @@ class Star(Objects):
         self.pos = Vec3(0,0,0)
         self.vel = Vec3(0,0,0)
         self.acc = None
+
+
+        self.base.render.setShaderAuto()
+
+        self.node.setLightOff()
+        self.node.setColor(Vec4(3, 3, 3, 1))
+
+        """ sun_light = PointLight("sun_light")
+        sun_light.setColor(Vec4(3, 3, 3, 1))  # values >1 = VERY bright
+
+        self.sun_np = self.base.render.attachNewNode(sun_light)
+        self.sun_np.setPos(0, 0, 0)  # Sun position
+
+        self.base.render.clearLight(self.sun_np) """ #don't have a way to turn it off mid simulation
 
     def create_ui(self):
         self.ui = DirectFrame(

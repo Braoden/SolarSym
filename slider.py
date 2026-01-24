@@ -8,9 +8,44 @@ class Slider:
             """Create a slider UI to control time_scale dynamically"""
             # Create a frame to hold the slider and label
             self.time_scale_frame = DirectFrame(
-                frameColor=(0, 0, 0, 0.8),
-                frameSize=(-0.3, 0.3, -0.2, 0.2),
-                pos=(-1.5, 0, 0.75)
+                frameColor=(0.3, 0.3, 0.3, 0.8),
+                frameSize=(-0.3, 0.3, -0.15, 0.15),
+                pos=(-1.5, 0, 0.8)
+            )
+
+            # Create black box outline using 4 border frames
+            border_width = 0.005  # Thickness of the border
+            
+            # Top border
+            DirectFrame(
+                parent=self.time_scale_frame,
+                frameColor=(0, 0, 0, 1.0),  # Black
+                frameSize=(-0.3, 0.3, 0.15 - border_width, 0.15),
+                pos=(0, 0, 0)
+            )
+            
+            # Bottom border
+            DirectFrame(
+                parent=self.time_scale_frame,
+                frameColor=(0, 0, 0, 1.0),  # Black
+                frameSize=(-0.3, 0.3, -0.15, -0.15 + border_width),
+                pos=(0, 0, 0)
+            )
+            
+            # Left border
+            DirectFrame(
+                parent=self.time_scale_frame,
+                frameColor=(0, 0, 0, 1.0),  # Black
+                frameSize=(-0.3, -0.3 + border_width, -0.15, 0.15),
+                pos=(0, 0, 0)
+            )
+            
+            # Right border
+            DirectFrame(
+                parent=self.time_scale_frame,
+                frameColor=(0, 0, 0, 1.0),  # Black
+                frameSize=(0.3 - border_width, 0.3, -0.15, 0.15),
+                pos=(0, 0, 0)
             )
             
             # Label for "Time Scale"
@@ -18,7 +53,10 @@ class Slider:
                 parent=self.time_scale_frame,
                 text="Time Scale",
                 scale=0.05,
+                relief = None,
                 pos=(0, 0, 0.06),
+                frameColor=(0.3, 0.3, 0.3, 1.0),
+                text_fg=(1, 1, 1, 1),  # White text
                 textMayChange=False
             )
             
@@ -28,12 +66,14 @@ class Slider:
                 text=f"{int(Objects.time_scale)}x",
                 scale=0.04,
                 pos=(0, 0, -0.08),
-                frameSize=(-2.5, 2.5, -0.4, 0.8), 
+                frameSize=(-2.5, 2.5, -0.4, 0.8),
+                frameColor=(0, 0, 0, 1.0),
+                text_fg=(1, 1, 1, 1),  # White text
                 textMayChange=True
             )
             
             # Create slider
-            # Using logarithmic scale: slider value 0-100 maps to time_scale 1 to 1e6
+            # Using logarithmic scale: slider value 0-100 maps to time_scale 1 to 1e7
             # Default position corresponds to current time_scale (1e5)
             initial_value = self.time_scale_to_slider_value(Objects.time_scale)
             
@@ -48,18 +88,18 @@ class Slider:
             )
         
     def time_scale_to_slider_value(self, time_scale):
-        """Convert time_scale to slider value (logarithmic scale: 1 to 1e6)"""
+        """Convert time_scale to slider value (logarithmic scale: 1 to 1e7)"""
         if time_scale <= 0:
             return 0
         log_value = log10(max(time_scale, 1))
-        # Normalize to 0-100 range (log goes from 0 to 6 for 1 to 1e6)
-        slider_value = (log_value / 6.0) * 100
+        # Normalize to 0-100 range (log goes from 0 to 7 for 1 to 1e7)
+        slider_value = (log_value / 7.0) * 100
         return max(0, min(100, slider_value))
     
     def slider_value_to_time_scale(self, slider_value):
-        """Convert slider value to time_scale (logarithmic scale: 1 to 1e6)"""
-        # Normalize slider value (0-100) to log range (0 to 6)
-        log_value = (slider_value / 100.0) * 6.0
+        """Convert slider value to time_scale (logarithmic scale: 1 to 1e7)"""
+        # Normalize slider value (0-100) to log range (0 to 7)
+        log_value = (slider_value / 100.0) * 7.0
         # Convert back to linear scale
         time_scale = 10 ** log_value
         return max(1, time_scale)
