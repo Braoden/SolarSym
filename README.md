@@ -4,23 +4,19 @@ A realistic 3D solar system simulation built with Panda3D, featuring accurate ph
 
 ## Features
 
-### Current Features
-- **Realistic Physics**: N-body gravitational simulation with accurate mass and orbital calculations
+### Current User Features
 - **Complete Solar System**: Includes the Sun, all 8 planets, and Earth's Moon
-- **Orbital Mechanics**: Planets automatically calculate their orbital positions and velocities based on orbital periods
 - **Interactive Camera**: 
   - Orbit around objects with mouse
   - Pan with keyboard (WASD, QE)
   - Smooth transitions when selecting objects
+- **Time Scale**: Adjust dynamically how fast the simulation runs
 - **Object Selection**: Click on any celestial body to select and view information
-- **Visual Trails**: Motion trails show the orbital paths of planets and moons
-- **3D Models**: High-quality GLB models for all celestial bodies
-- **Skybox**: Immersive backdrop for the simulation
+- **Dynamic & Interactable Minimap**: A display of the Sun's and planets' positions. Click on an object on the minimap to select it
 
 ### Technical Details
 - Uses real-world physical constants and formulas
 - Accurate planetary masses, radii, and orbital periods
-- Configurable time scale for speeding up or slowing down simulation
 - Custom scaling system for rendering large distances efficiently
 - Collision detection for object selection
 
@@ -68,17 +64,16 @@ python main.py
 
 ### Controls
 
-- **Mouse Right-Click + Drag**: Rotate camera around target (yaw/pitch)
+- **Mouse Right-Click + Drag**: Rotate camera around target
 - **W / S**: Zoom in / Zoom out (or move forward/backward when no object selected)
 - **A / D**: Pan left / Pan right
 - **Q / E**: Pan up / Pan down
-- **Left-Click**: Select a celestial object
-- **Close Button**: Deselect the current object (appears in UI when object is selected)
+- **Left-Click**: Select an object (works on minimap as well)
 
 ### Camera Behavior
 
 - When no object is selected: Free camera movement with panning and zooming
-- When an object is selected: Camera smoothly follows the selected object at an appropriate distance
+- When an object is selected: Camera smoothly follows the selected object
 
 ## Project Structure
 
@@ -92,6 +87,9 @@ panda3d/
 ├── camera.py         # Camera control system
 ├── select.py         # Object selection system (ray casting)
 ├── trail.py          # Motion trail rendering for orbits
+├── menu.py           # For UI features
+├── slider.py         # Dynamic slider to adjust simulation speed
+├── nav.py            # Minimap implementation
 ├── requirements.txt  # Python dependencies
 ├── .gitignore        # Git ignore rules
 ├── LICENSE           # License file
@@ -116,7 +114,7 @@ panda3d/
 The simulation uses real world values with multiple scales to handle astronomical distances:
 - `dimension_scale`: 1e-6 (converts meters to renderable units)
 - `distance_scale`: 5 (additional distance compression for visual purposes only) 
-   *changed to 50 past the asteroid belt*
+   *increased to 50 past the asteroid belt*
 - `size_scale`: 3 (increases the sizes of objects for visual purposes only)
 - `time_scale`: 1e5 (speeds up simulation time)
 
