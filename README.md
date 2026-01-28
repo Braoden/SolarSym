@@ -1,6 +1,6 @@
 # Panda3D Solar System Simulator
 
-A realistic 3D solar system simulation built with Panda3D, featuring accurate physics-based gravity calculations and orbital mechanics. Watch planets orbit the sun, select celestial objects to inspect, and explore the solar system from various perspectives.
+A realistic 3D solar system simulation built with Panda3D, featuring accurate physics-based gravity calculations and orbital mechanics using real-world values. Watch planets orbit the sun, select celestial objects to inspect, and explore the solar system from various perspectives.
 
 ## Features
 
@@ -14,22 +14,10 @@ A realistic 3D solar system simulation built with Panda3D, featuring accurate ph
 - **Object Selection**: Click on any celestial body to select and view information
 - **Dynamic & Interactable Minimap**: A display of the Sun's and planets' positions. Click on an object on the minimap to select it
 
-### Technical Details
-- Uses real-world physical constants and formulas
-- Accurate planetary masses, radii, and orbital periods
-- Custom scaling system for rendering large distances efficiently
-- Collision detection for object selection
-
 ## Requirements
 
 - Python 3.7 or higher
 - [Panda3D](https://www.panda3d.org/) 1.10.0 or higher
-
-### Quick Install
-
-```bash
-pip install -r requirements.txt
-```
 
 ## Installation
 
