@@ -4,7 +4,6 @@ A realistic 3D solar system simulation built with Panda3D, featuring accurate ph
 
 ## Features
 
-### Current User Features
 - **Complete Solar System**: Includes the Sun, all 8 planets, and Earth's Moon
 - **Interactive Camera**: 
   - Orbit around objects with mouse
