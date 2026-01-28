@@ -21,7 +21,7 @@ class Trail():
         
         self.trail.setGlobalEnable(True)
         
-        self.trail.sampling_time = 0.4
+        self.trail.sampling_time = 0.25
         #make the trail update every n seconds. set high as a low value causes extreme lag
         
         if hasattr(object, "in_orbit") and object.in_orbit:

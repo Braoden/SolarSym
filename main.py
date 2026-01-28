@@ -20,19 +20,14 @@ from panda3d.core import Vec3, Point3, LineSegs, NodePath, ClockObject
 """
 
 fix:
-
+- sun rotation
 
 implement:
-- make the sun seem more vibrant / animated
 - asteroid belt
 - saturn's ring
 - speed of gravity (?)
 
-- solar system minimap
 - shaders and lighting
-- slider for time_scale
-- implement menu gui: 
-  - adding objects with custom dimensions wherever
 - other objects (asteroids, comets)
 
 storyboard:
