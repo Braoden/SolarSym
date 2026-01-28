@@ -29,18 +29,6 @@ A realistic 3D solar system simulation built with Panda3D, featuring accurate ph
    ```bash
    pip install panda3d
    ```
-3. Ensure all model files are in the `models/` directory:
-   - `backdrop.glb`
-   - `sun8.glb`
-   - `mercury2.glb`
-   - `venus.glb`
-   - `earth2.glb`
-   - `moon.glb`
-   - `mars.glb`
-   - `jupiter2.glb`
-   - `saturn8.glb`
-   - `uranus2.glb`
-   - `neptune.glb`
 
 ## Usage
 
