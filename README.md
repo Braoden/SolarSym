@@ -18,24 +18,9 @@ A realistic 3D solar system simulation built with Panda3D, featuring accurate ph
 - Python 3.7 or higher
 - [Panda3D](https://www.panda3d.org/) 1.10.0 or higher
 
-## Installation
-
-1. Clone or download this repository
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-   Or install manually:
-   ```bash
-   pip install panda3d
-   ```
-
 ## Usage
 
-Run the simulation:
-```bash
-python main.py
-```
+To install the requirements and run the simulation, simply run the "run.bat" file
 
 ### Controls
 
