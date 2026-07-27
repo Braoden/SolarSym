@@ -2,6 +2,8 @@
 
 A realistic 3D solar system simulation built with Panda3D, featuring accurate physics-based gravity calculations and orbital mechanics using real-world values. Watch planets orbit the sun, select celestial objects to inspect, and explore the solar system from various perspectives.
 
+![Solar system simulation showing the Sun, Earth and Moon with an object info panel and minimap](screenshot.png)
+
 ## Features
 
 - **Complete Solar System**: Includes the Sun, all 8 planets, and Earth's Moon
